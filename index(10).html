@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti ❤</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fcd5ce; /* Color rosa claro casi durazno */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            margin: auto;
+            position: relative;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .heart {
+            color: #e91e63;
+            font-size: 3rem;
+            margin: 10px 0;
+        }
+
+        .hearts {
+            position: fixed;
+            font-size: 4rem;
+            color: #ff5c8d;
+        }
+
+        .hearts.left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .hearts.right {
+            top: 10px;
+            right: 10px;
+        }
+
+        .photos {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .photos img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hello-kitty {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .hello-kitty img {
+            width: 100px;
+            height: 100px;
+            margin: 0 10px;
+        }
+
+        /* Estilo para la ventana emergente */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none; /* Oculta por defecto */
+        }
+
+        .popup {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .popup img {
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .buttons button.no {
+            background-color: #ff5c8d;
+        }
+
+        /* Media Query para pantallas móviles */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .photos img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hello-kitty img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .heart {
+                font-size: 2.5rem;
+            }
+
+            .popup {
+                width: 90%;
+            }
+
+            .popup img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* Media Query para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .photos img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .popup {
+                width: 95%;
+            }
+
+            .popup img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+    <script>
+        function mostrarPregunta() {
+            setTimeout(function() {
+                document.querySelector('.overlay').style.display = 'flex';
+            }, 60000); // 1 minuto = 60000 milisegundos
+        }
+
+        function cerrarPopup() {
+            alert("¡No puedes escapar tan fácil! 😤 ¡Contesta la pregunta!");
+        }
+
+        function preguntarNoviazgo(respuesta) {
+            if (respuesta === 'si') {
+                alert("¡Sabía que dirías que sí! ❤");
+                document.querySelector('.overlay').style.display = 'none'; // Cerrar la ventana emergente
+            } else {
+                alert("¿¡Cómo que no!? 😡 No, no, no... ¡No puedes decir que no! 😤 Vamos, piénsalo bien.");
+                document.querySelector('.overlay').style.display = 'flex'; // Mantener la ventana abierta
+            }
+        }
+    </script>
+</head>
+<body onload="mostrarPregunta()">
+    <div class="container">
+        <h1>Para ti, mi cachetona linda</h1>
+        <p>Después de tanto tiempo que llevamos conociéndonos, nunca he dudado en que eres la mujer más hermosa, linda, carismática y sincera que he conocido en toda mi vida. Además de esos rasgos tan perfectos que te caracterizan a ti y a tu personalidad.</p>
+        <p>Me gustas tal y como eres, y deseo que sigas siendo esa mujer perfecta que eres ahora. Que sigas mejorando y que te vaya bien en todos tus proyectos, no olvides que estaré siempre a tu lado apoyándote.</p>
+        <div class="heart">❤</div>
+
+        <div class="photos">
+            <img src="Images/Novios(2).jpg" alt="Foto de los dos">
+            <img src="Images/Novios.jpg" alt="Foto de ustedes">
+        </div>
+
+        <div class="hello-kitty">
+            <img src="https://th.bing.com/th/id/R.74e9843aefb73f4e94a1c07e3f6575fa?rik=%2blJYIc9ELl6o3g&riu=http%3a%2f%2fimages5.fanpop.com%2fimage%2fphotos%2f31000000%2fHello-kitty-hello-kitty-31063773-1920-1200.jpg&ehk=3WWHmk4yLzEY2VPsEsd56ygwCF8%2bfB9a83dH3LOl%2fhs%3d&risl=&pid=ImgRaw&r=0" alt="Hello Kitty 1">
+            <img src="https://th.bing.com/th/id/R.ab78c61b9715e59e519ef941a856bb7f?rik=2X8oqKmDpe4pTQ&riu=http%3a%2f%2fpm1.narvii.com%2f6016%2f1fa68e7c11565d91ad9584fc735e37fa5d2c2997_hq.jpg&ehk=9HwKddWy9UJCCRRxlounbmp1%2btBBZ1uG8btD%2fs8h8tM%3d&risl=&pid=ImgRaw&r=0" alt="Hello Kitty 2">
+            <img src="https://th.bing.com/th/id/OIP.wXSDILGV-VyTN3mTZoVZLgHaHh?rs=1&pid=ImgDetMain" alt="Hello Kitty 3">
+        </div>
+    </div>
+
+    <div class="overlay">
+        <div class="popup">
+            <span class="close" onclick="cerrarPopup()">×</span>
+            <h2>¿Quieres ser mi novia?</h2>
+            <div class="hello-kitty">
+                <img src="https://th.bing.com/th/id/R.74e9843aefb73f4e94a1c07e3f6575fa?rik=%2blJYIc9ELl6o3g&riu=http%3a%2f%2fimages5.fanpop.com%2fimage%2fphotos%2f31000000%2fHello-kitty-hello-kitty-31063773-1920-1200.jpg&ehk=3WWHmk4yLzEY2VPsEsd56ygwCF8%2bfB9a83dH3LOl%2fhs%3d&risl=&pid=ImgRaw&r=0" alt="Hello Kitty 1">
+                <img src="https://th.bing.com/th/id/OIP.XVJp97t3X-1OATAKLnLnmwAAAA?rs=1&pid=ImgDetMain" alt="Hello Kitty 2">
+            </div>
+            <div class="buttons">
+                <button onclick="preguntarNoviazgo('si')">Sí</button>
+                <button class="no" onclick="preguntarNoviazgo('no')">No</button>
+            </div>
+        </div>
+    </div>
+
+    <span class="hearts left">❤❤❤</span>
+    <span class="hearts right">❤❤❤</span>
+</body>
+</html>
+
+
